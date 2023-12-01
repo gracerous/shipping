@@ -39,7 +39,7 @@ const getDesignTokens = (mode) => {
           fontSize: '3rem',
         },
         '@media (max-width: 600px)': {
-          fontSize: '2.5rem',
+          fontSize: '1.5rem',
         },
       },
       h2: {
@@ -53,6 +53,9 @@ const getDesignTokens = (mode) => {
         '@media (max-width: 1280px)': {
           fontSize: '3rem',
         },
+        '@media (max-width: 600px)': {
+          fontSize: '1.5rem',
+        }
       },
       h3: {
         fontSize: '2.625rem',
@@ -65,6 +68,9 @@ const getDesignTokens = (mode) => {
         '@media (max-width: 1280px)': {
           fontSize: '1.5rem',
         },
+        '@media (max-width: 600px)': {
+          fontSize: '1rem',
+        }
       },
       p: {
         fontSize: '1.375rem',
@@ -79,7 +85,7 @@ const getDesignTokens = (mode) => {
           fontSize: '1rem',
         },
         '@media (max-width: 600px)': {
-          fontSize: '1.25rem',
+          fontSize: '0.75rem',
         },
       }
     },
@@ -191,10 +197,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
       <Box className='App' sx={{
+        width: '100%',
         bgcolor: theme.palette.background.default,
-        // '@media (max-width: 600px)': {
-        //   px: '1rem',
-        // }
       }}>
         <Box sx={{
           '@media (max-width: 600px)': {
@@ -203,7 +207,13 @@ function App() {
         }}>
           <HomeSection minHeight={minHeight} />
           <AboutSection minHeight={minHeight} />
-          <ServicesSection minHeight={minHeight} />
+        </Box>
+        <ServicesSection minHeight={minHeight} />
+        <Box sx={{
+          '@media (max-width: 600px)': {
+            px: '1rem',
+          }
+        }}>
           <AdvantagesSection minHeight={minHeight} />
           <ContactSection minHeight={minHeight} />
           {/* <Footer /> */}

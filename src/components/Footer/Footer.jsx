@@ -30,7 +30,7 @@ export default function Footer() {
   const pages = ['home', 'about', 'services', 'advantages', 'contact'];
 
   return (
-    <Box component={'footer'} sx={{ minHeight: '230px', bgcolor: theme.palette.header.background, py: 1 }}>
+    <Box component={'footer'} sx={{ minHeight: '230px', bgcolor: theme.palette.header.background, pt:3, pb: 1 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '20px' }}>
           <Box component='a' href=''>

@@ -13,7 +13,7 @@ export default function HomeSection({ minHeight }) {
     const section = document.getElementById(id);
 
     if (section) {
-      const offset = section.getBoundingClientRect().top + headerHeight;
+      const offset = section.getBoundingClientRect().top - headerHeight;
       window.scrollTo({
         top: offset + window.scrollY,
         behavior: 'smooth',

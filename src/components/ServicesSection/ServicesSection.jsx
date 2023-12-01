@@ -21,6 +21,7 @@ export default function ServicesSection({ minHeight }) {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         justifyContent: 'center',
+        overflow: 'hidden',
         '@media (max-width: 1440px)': {
           backgroundImage: 'none',
           justifyContent: 'flex-start',
@@ -48,12 +49,9 @@ export default function ServicesSection({ minHeight }) {
           OUR SERVICES
         </Typography>
         <Box sx={{
-          display: 'flex',
+          display: { xs: 'flex', md: 'none' },
           justifyContent: 'center',
-          minWidth: '80%',
-          flexWrap: 'wrap',
-          gap: '20px',
-          margin: '0 auto',
+          // overflow: 'hidden'
         }}>
           <Swiper
             effect={'cards'}
@@ -66,10 +64,9 @@ export default function ServicesSection({ minHeight }) {
             <SwiperSlide><ContentCard /></SwiperSlide>
           </Swiper>
         </Box>
-
-        {/* <Box
+        <Box
           sx={{
-            display: 'flex',
+            display: { xs: 'none', md: 'flex' },
             flexDirection: 'row',
             justifyContent: 'center',
             minWidth: '80%',
@@ -82,7 +79,7 @@ export default function ServicesSection({ minHeight }) {
           <ContentCard />
           <ContentCard />
           <ContentCard />
-        </Box> */}
+        </Box>
       </Box>
     </Box >
   )

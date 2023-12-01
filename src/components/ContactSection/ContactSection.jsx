@@ -5,6 +5,8 @@ import { TextField, Grid, Box, Typography, Link, Button } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import ActionButton from '../ActionButton/ActionButton';
+import EmailIcon from '@mui/icons-material/Email';
+import CallIcon from '@mui/icons-material/Call';
 
 export default function ContactSection({ minHeight }) {
   const theme = useTheme();
@@ -24,7 +26,6 @@ export default function ContactSection({ minHeight }) {
   };
 
   const handleSubmit = (values) => {
-    // Handle form submission here
     console.log(values);
   };
 
@@ -33,7 +34,6 @@ export default function ContactSection({ minHeight }) {
       sx={{
         minHeight: { xs: '400px', md: minHeight },
         bgcolor: theme.palette.background.default,
-        // backgroundImage: `url(${homeSection_bg_light})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'auto',
         backgroundPosition: 'bottom',
@@ -52,7 +52,6 @@ export default function ContactSection({ minHeight }) {
             rowGap: 5,
             color: theme.palette.text.primary,
             '@media (max-width: 820px)': {
-              mt: 4,
               alignItems: 'center'
             }
           }}
@@ -70,8 +69,8 @@ export default function ContactSection({ minHeight }) {
             <Link color={theme.palette.text.primary} variant='p' href='tel:+1234567890'>+1234567890</Link>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none', color: theme.palette.button.text }, flexDirection: 'column', rowGap: 2 }}>
-            <Button color='inherit' href='mailto:example@example.com' >Email</Button>
-            <Button color='inherit' href='tel:+1234567890'>Telephone</Button>
+            <Button color='inherit' href='mailto:example@example.com'>Email<EmailIcon sx={{ ml: '10px' }} /></Button>
+            <Button color='inherit' href='tel:+1234567890'>Telephone<CallIcon sx={{ ml: '10px' }} /></Button>
           </Box>
         </Box>
         <Box sx={{

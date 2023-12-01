@@ -105,7 +105,7 @@ export default function AdvantagesSection({ minHeight }) {
 const AdvantageBox = ({ title, description }) => {
   return (
     <Box sx={{ flex: 1, textAlign: 'center', py: 3, px: { xs: 0, md: 3 } }}>
-      <Typography variant='h4' sx={{ mb: 2 }}>{title}</Typography>
+      <Typography variant='h3' sx={{ mb: 2 }}>{title}</Typography>
       <Typography variant='p'>{description}</Typography>
     </Box>
   );
