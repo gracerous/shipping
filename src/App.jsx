@@ -72,6 +72,22 @@ const getDesignTokens = (mode) => {
           fontSize: '1rem',
         }
       },
+      h4: {
+        fontSize: '1.375rem',
+        lineHeight: 'normal',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontFamily: 'Roboto',
+        '@media (max-width: 1470px)': {
+          fontSize: '1.125rem',
+        },
+        '@media (max-width: 1280px)': {
+          fontSize: '1rem',
+        },
+        '@media (max-width: 600px)': {
+          fontSize: '0.875rem',
+        },
+      },
       p: {
         fontSize: '1.375rem',
         lineHeight: 'normal',
@@ -85,7 +101,7 @@ const getDesignTokens = (mode) => {
           fontSize: '1rem',
         },
         '@media (max-width: 600px)': {
-          fontSize: '0.75rem',
+          fontSize: '0.8125rem',
         },
       }
     },

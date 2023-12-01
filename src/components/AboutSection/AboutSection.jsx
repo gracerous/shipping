@@ -16,7 +16,7 @@ const SeparatorText = ({ text, lastComponent, theme }) => (
     }}
   >
     <Typography
-      variant='p'
+      variant='h4'
       sx={{
         fontWeight: 500,
       }}

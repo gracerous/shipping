@@ -87,7 +87,7 @@ export default function MobileDrawer() {
         onClose={toggleDrawer('left', false)}
         PaperProps={{
           sx: {
-            backgroundColor: theme.palette.background.default,
+            bgcolor: theme.palette.background.default
           }
         }}
       >

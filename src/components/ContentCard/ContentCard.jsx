@@ -15,7 +15,6 @@ export default function ContentCard({ cardImg }) {
       borderRadius: '10px',
       '&:hover': {
         boxShadow: `-1px 10px 29px 0px ${theme.palette.card.hover}`,
-        // boxShadow: `0px ${theme.palette.card.hover}`,
         '& .cardHeader': {
           color: theme.palette.mode === 'light' ? theme.palette.text.hover : 'none',
         },
@@ -23,6 +22,8 @@ export default function ContentCard({ cardImg }) {
       '@media (max-width: 1470px)': {
         maxWidth: '280px',
         minHeight: '400px',
+      },
+      '@media (max-width: 820px)': {
         '&:hover': {
           boxShadow: 'none',
           '& .cardHeader': {

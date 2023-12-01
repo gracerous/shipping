@@ -14,7 +14,7 @@ export default function ServicesSection({ minHeight }) {
   return (
     <Box component={'section'} id='services'
       sx={{
-        minHeight: minHeight,
+        minHeight: { xs: '600px', md: minHeight },
         bgcolor: theme.palette.background.default,
         backgroundImage: theme.palette.mode === 'light' ? `url(${servicesSection_bg_light})` : `url(${servicesSection_bg_dark})`,
         backgroundRepeat: 'no-repeat',
