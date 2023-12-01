@@ -33,7 +33,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: theme.palette.background.secondary,
       },
     },
   },
@@ -58,7 +58,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.secondary,
     borderRadius: 50 / 2,
   },
 }));
@@ -91,14 +91,14 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position='sticky' sx={{ boxShadow: 'none' }}>
-      <Toolbar disableGutters sx={{ height: '5rem', bgcolor: theme.palette.header.background, p: '0px 24px' }}>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+      <Toolbar disableGutters sx={{ height: '5rem', bgcolor: theme.palette.header.background, p: { xs: 0, md: '0px 24px' }, columnGap: { xs: '10px', md: 0 } }}>
+        <Box sx={{  display: { xs: 'flex', md: 'none' } }}>
           <MobileDrawer />
         </Box>
-        <Box component='a' href=''>
+        <Box component='a' href='' sx={{  mx: { xs: 'auto', md: '0' }}}>
           <img src={logo} alt='Logo' width={'100%'} />
         </Box>
-        <Box component={'nav'}
+        <Box component='nav'
           sx={{
             ml: 'auto',
             display: { xs: 'none', md: 'flex' }

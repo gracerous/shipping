@@ -12,15 +12,22 @@ export default function ContentCard({ cardImg }) {
     <Card sx={{
       maxWidth: '350px',
       minHeight: '500px',
-      '@media (max-width: 1470px)': {
-        maxWidth: '280px',
-        minHeight: '400px'
-      },
       borderRadius: '10px',
       '&:hover': {
         boxShadow: `-1px 10px 29px 0px ${theme.palette.card.hover}`,
+        // boxShadow: `0px ${theme.palette.card.hover}`,
         '& .cardHeader': {
           color: theme.palette.mode === 'light' ? theme.palette.text.hover : 'none',
+        },
+      },
+      '@media (max-width: 1470px)': {
+        maxWidth: '280px',
+        minHeight: '400px',
+        '&:hover': {
+          boxShadow: 'none',
+          '& .cardHeader': {
+            color: theme.palette.card.text,
+          },
         },
       },
     }}>

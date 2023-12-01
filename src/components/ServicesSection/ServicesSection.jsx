@@ -4,6 +4,10 @@ import { Box, Typography } from '@mui/material'
 import { useTheme } from '@emotion/react';
 import servicesSection_bg_light from '../../images/servicesSection_bg_light.svg';
 import servicesSection_bg_dark from '../../images/servicesSection_bg_dark.svg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import { EffectCards } from 'swiper/modules';
 
 export default function ServicesSection({ minHeight }) {
   const theme = useTheme();
@@ -12,7 +16,7 @@ export default function ServicesSection({ minHeight }) {
       sx={{
         minHeight: minHeight,
         bgcolor: theme.palette.background.default,
-        backgroundImage: theme.palette.mode === 'light' ? `url(${servicesSection_bg_light})` :`url(${servicesSection_bg_dark})`,
+        backgroundImage: theme.palette.mode === 'light' ? `url(${servicesSection_bg_light})` : `url(${servicesSection_bg_dark})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -43,7 +47,27 @@ export default function ServicesSection({ minHeight }) {
         >
           OUR SERVICES
         </Typography>
-        <Box
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          minWidth: '80%',
+          flexWrap: 'wrap',
+          gap: '20px',
+          margin: '0 auto',
+        }}>
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            modules={[EffectCards]}
+            loop={'true'}
+          >
+            <SwiperSlide><ContentCard /></SwiperSlide>
+            <SwiperSlide><ContentCard /></SwiperSlide>
+            <SwiperSlide><ContentCard /></SwiperSlide>
+          </Swiper>
+        </Box>
+
+        {/* <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
@@ -58,8 +82,8 @@ export default function ServicesSection({ minHeight }) {
           <ContentCard />
           <ContentCard />
           <ContentCard />
-        </Box>
+        </Box> */}
       </Box>
-    </Box>
+    </Box >
   )
 }

@@ -30,7 +30,7 @@ export default function Footer() {
   const pages = ['home', 'about', 'services', 'advantages', 'contact'];
 
   return (
-    <Box component={'footer'} sx={{ height: '230px', bgcolor: theme.palette.header.background }}>
+    <Box component={'footer'} sx={{ minHeight: '230px', bgcolor: theme.palette.header.background, py: 1 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '20px' }}>
           <Box component='a' href=''>
@@ -42,7 +42,7 @@ export default function Footer() {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{  display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>
           {pages.map((page) => (
             <CustomMenuItem onClick={() => scrollToSection(page)} key={page} >
               <Typography

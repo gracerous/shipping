@@ -1,10 +1,9 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import ActionButton from '../ActionButton/ActionButton';
 import { useTheme } from '@emotion/react';
 import homeSection_bg_light from '../../images/homeSection_bg_light.svg';
 import homeSection_bg_dark from '../../images/homeSection_bg_dark.svg';
-import { useSelector } from 'react-redux';
 
 export default function HomeSection({ minHeight }) {
   const theme = useTheme();
@@ -25,25 +24,29 @@ export default function HomeSection({ minHeight }) {
   return (
     <Box component={'section'} id='home'
       sx={{
-        minHeight: minHeight,
+        minHeight: { xs: '600px', md: minHeight },
         bgcolor: theme.palette.background.default,
         backgroundImage: theme.palette.mode === 'light' ? `url(${homeSection_bg_light})` : `url(${homeSection_bg_dark})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'auto',
         backgroundPosition: 'bottom',
         backgroundPosition: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        '@media (max-width: 820px)': {
+          backgroundImage: 'none',
+        },
       }}
     >
       <Box sx={{ maxWidth: '750px', m: '0 auto 75px auto', color: theme.palette.text.primary, borderRadius: '20px', bgcolor: theme.palette.background.default }}>
-        <Typography variant='h1' sx={{ fontSize: '4.5rem', mb: '75px' }}>Home page Lorem ipsum dolor sit amet.</Typography>
+        <Typography variant='h1' sx={{ mb: '75px' }}>
+          ITIRO - we will find a way for you
+        </Typography>
         <Typography variant='p'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, quidem earum voluptatibus officia maiores pariatur culpa nulla reprehenderit atque aspernatur repellat est ipsam quibusdam, perferendis deleniti quia adipisci dolorum ut!
+          We, ITIRO DMCC, are a shipping company operating in dry bulk cargoes market, with an extensive expertise in mineral fertilizers, coal and grains trasponsporation. Whether you need to carry  10,000 mt of 150,000 mt - we are here for you.
         </Typography>
       </Box>
       <Box>
-        <ActionButton content={'Contact Us'}
-          action={() => scrollToSection('contact')} />
+        <Button sx={{ color: theme.palette.button.text}} variant='contained' onClick={() => scrollToSection('contact')}>Contact Us</Button>
       </Box>
     </Box>
   )
