@@ -7,14 +7,13 @@ import { useTheme } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 
-
 export default function MobileDrawer() {
   const theme = useTheme();
   const [state, setState] = React.useState({
     left: false,
   });
 
-  const pages = ['home', 'about', 'services', 'advantages', 'contact'];
+  const pages = ['home', 'about', 'destinations', 'advantages', 'contact'];
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -28,7 +27,6 @@ export default function MobileDrawer() {
       });
     }
   };
-
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

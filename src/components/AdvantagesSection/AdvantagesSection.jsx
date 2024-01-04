@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import advantagesSection_img_light from '../../images/advantagesSection_img_light.svg';
 import advantagesSection_img_dark from '../../images/advantagesSection_img_dark.svg';
-import ship_new from '../../images/ship_new.svg';
+
 
 const advantagesData = [
   {
@@ -94,7 +94,7 @@ export default function AdvantagesSection({ minHeight }) {
               },
             }}
           >
-            <img src={theme.palette.mode === 'light' ? ship_new : ship_new} alt='' width={'100%'} />
+            <img src={theme.palette.mode === 'light' ? advantagesSection_img_light : advantagesSection_img_dark} alt='' width={'100%'} />
           </Box>
         </Box>
       </Box>

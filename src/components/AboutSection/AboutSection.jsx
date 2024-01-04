@@ -16,7 +16,7 @@ const SeparatorText = ({ text, lastComponent, theme }) => (
     }}
   >
     <Typography
-      variant='h4'
+      variant='p'
       sx={{
         fontWeight: 500,
       }}
@@ -87,7 +87,7 @@ export default function AboutSection({ minHeight }) {
           justifyContent: 'center',
           bgcolor: theme.palette.background.default,
           color: theme.palette.text.primary,
-          padding: '5px',
+          padding: '10px',
           borderRadius: '20px',
           '@media (max-width: 820px)': {
             textAlign: 'center',

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import placeholder_img from '../../images/placeholder_img.svg'
 import { useTheme } from '@emotion/react';
 
-export default function ContentCard({ cardImg }) {
+export default function ContentCard({ cardImg, title, content }) {
   const theme = useTheme();
   return (
     <Card sx={{
@@ -48,10 +48,10 @@ export default function ContentCard({ cardImg }) {
       <CardContent sx={{ textAlign: 'start' }}>
         <Typography className='cardHeader' gutterBottom variant='h5' component='div' color={theme.palette.card.text} sx={{
         }}>
-          Lorem
+          {title}
         </Typography>
         <Typography variant='p' color={theme.palette.card.text}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus magni, cupiditate vitae dolorem nulla quia? Voluptatum incidunt eligendi culpa id.
+          {content}
         </Typography>
       </CardContent>
     </Card>

@@ -30,34 +30,34 @@ export default function Footer() {
   const pages = ['home', 'about', 'services', 'advantages', 'contact'];
 
   return (
-    <Box component={'footer'} sx={{ minHeight: '230px', bgcolor: theme.palette.header.background, pt:3, pb: 1 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '20px' }}>
+    <Box component={'footer'} sx={{ minHeight: '200px', bgcolor: theme.palette.header.background, pt: 3, pb: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Box component='a' href=''>
-            <img src={logo} alt='Logo' width={'100%'} />
+            <img src={logo} alt='Logo' width={'auto'} />
           </Box>
-          <Box sx={{ maxWidth: '500px' }}>
-            <Typography>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-            </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>
+            {pages.map((page) => (
+              <CustomMenuItem onClick={() => scrollToSection(page)} key={page} >
+                <Typography
+                  textAlign='center'
+                  sx={{
+                    textTransform: 'uppercase', color: theme.palette.text.secondary, '&:hover': {
+                      color: theme.palette.text.hover
+                    }
+                  }}
+                >
+                  {page}
+                </Typography>
+              </CustomMenuItem>
+            ))}
           </Box>
         </Box>
-        <Box sx={{  display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>
-          {pages.map((page) => (
-            <CustomMenuItem onClick={() => scrollToSection(page)} key={page} >
-              <Typography
-                textAlign='center'
-                sx={{
-                  textTransform: 'uppercase', color: theme.palette.text.secondary, '&:hover': {
-                    color: theme.palette.text.hover
-                  }
-                }}
-              >
-                {page}
-              </Typography>
-            </CustomMenuItem>
-          ))}
-        </Box>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Typography>
+          Copyright © 2024 Itiro DMCC
+        </Typography>
       </Box>
     </Box>
   )

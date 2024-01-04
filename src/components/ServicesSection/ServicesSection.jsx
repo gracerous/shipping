@@ -8,11 +8,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
+import { CardsContentArr } from './CardContent';
 
 export default function ServicesSection({ minHeight }) {
   const theme = useTheme();
   return (
-    <Box component={'section'} id='services'
+    <Box component={'section'} id='destinations'
       sx={{
         minHeight: { xs: '600px', md: minHeight },
         bgcolor: theme.palette.background.default,
@@ -41,17 +42,16 @@ export default function ServicesSection({ minHeight }) {
             mb: '120px',
             '@media (max-width: 1470px)': {
               mb: '50px',
-              mt: '0'
+              mt: '50px'
             },
             color: theme.palette.text.primary
           }}
         >
-          OUR SERVICES
+          OUR DESTINATIONS
         </Typography>
         <Box sx={{
           display: { xs: 'flex', md: 'none' },
           justifyContent: 'center',
-          // overflow: 'hidden'
         }}>
           <Swiper
             effect={'cards'}
@@ -59,9 +59,15 @@ export default function ServicesSection({ minHeight }) {
             modules={[EffectCards]}
             loop={'true'}
           >
-            <SwiperSlide><ContentCard /></SwiperSlide>
-            <SwiperSlide><ContentCard /></SwiperSlide>
-            <SwiperSlide><ContentCard /></SwiperSlide>
+            {CardsContentArr.map((card) => (
+              <SwiperSlide key={card.id}>
+                <ContentCard
+                  cardImg={card.image}
+                  title={card.title}
+                  content={card.content}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </Box>
         <Box
@@ -75,10 +81,14 @@ export default function ServicesSection({ minHeight }) {
             margin: '0 auto',
           }}
         >
-          <ContentCard />
-          <ContentCard />
-          <ContentCard />
-          <ContentCard />
+          {CardsContentArr.map((card) => (
+            <ContentCard
+              key={card.id}
+              cardImg={card.image}
+              title={card.title}
+              content={card.content}
+            />
+          ))}
         </Box>
       </Box>
     </Box >
