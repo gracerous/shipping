@@ -41,7 +41,11 @@ export default function HomeSection({ minHeight }) {
           ITIRO - we will find the way for you
         </Typography>
         <Typography variant='p'>
+<<<<<<< HEAD
           We, ITIRO DMCC, are a shipping company operating in dry bulk cargoes market, with an extensive expertise in mineral fertilizers, coal and grains trasponsporation. Whether you need to carry 10,000 mt or 150,000 mt - we are here for you.
+=======
+          We, ITIRO DMCC, are a shipping company operating in dry bulk cargoes market, with an extensive expertise in mineral fertilizers, coal and grains trasponsporation. Whether you need to carry  10,000 mt of 150,000 mt - we are here for you.
+>>>>>>> 34a8ed90b95e2e24813063be868a3db4adeb6042
         </Typography>
       </Box>
       <Box>
