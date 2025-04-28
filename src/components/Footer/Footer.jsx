@@ -2,7 +2,8 @@ import { useTheme } from '@emotion/react';
 import { Box, MenuItem, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React from 'react';
-import logo from '../../images/logo.svg';
+import logoFooter from '../../images/logo_footer.svg';
+
 
 export default function Footer() {
   const theme = useTheme();
@@ -34,7 +35,7 @@ export default function Footer() {
       <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Box component='a' href=''>
-            <img src={logo} alt='Logo' width={'auto'} />
+            <img src={logoFooter} alt='Logo Footer' width={'auto'} />
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center' }}>
             {pages.map((page) => (
@@ -56,7 +57,7 @@ export default function Footer() {
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Typography>
-          Copyright © 2024 Itiro DMCC
+          Copyright © 2025 Itiro DMCC
         </Typography>
       </Box>
     </Box>

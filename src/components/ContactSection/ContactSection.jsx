@@ -1,14 +1,16 @@
-import React from 'react';
-import homeSection_bg_light from '../../images/homeSection_bg_light.svg';
+import React, { useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { TextField, Grid, Box, Typography, Link, Button } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
+import CustomSnackBar from '../CustomSnackBar/CustomSnackBar';
 
 export default function ContactSection({ minHeight }) {
   const theme = useTheme();
+
+  const [isSnackbarOpen, setSnackbarOpen] = useState(false);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -24,9 +26,28 @@ export default function ContactSection({ minHeight }) {
     message: '',
   };
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const response = await fetch('https://shipping-server.vercel.app/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+        resetForm({ values: initialValues });
+        setSnackbarOpen(true);
+      } else {
+        console.error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
+
 
   return (
     <Box component={'section'} id='contact'
@@ -43,6 +64,7 @@ export default function ContactSection({ minHeight }) {
         }
       }}
     >
+      <CustomSnackBar isSnackbarOpen={isSnackbarOpen} handleClose={() => setSnackbarOpen(false)} />
       <Box sx={{ display: 'flex' }}>
         <Box
           sx={{
@@ -56,19 +78,15 @@ export default function ContactSection({ minHeight }) {
           }}
         >
           <Box sx={{ textAlign: { xs: 'center', md: 'start' } }}>
-            <Typography variant='h2' sx={{ lineHeight: '2rem', verticalAlign: 'top', marginBottom: '10px' }}>Contact us</Typography>
-            <Typography variant='p'>for any inquiries</Typography>
+            <Typography variant='h2' sx={{ lineHeight: '3.5rem', verticalAlign: 'top', marginBottom: '7px' }}>Contact us</Typography>
+            <Typography variant='p' sx={{ pl: '5px' }}>for any inquiries</Typography>
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'flex-start', flexDirection: 'column', rowGap: 2 }}>
             <Typography variant='h3'>Email</Typography>
-            <Link color={theme.palette.text.primary} variant='p' href='mailto:example@example.com'>example@example.com</Link>
-          </Box>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'flex-start', flexDirection: 'column', rowGap: 2 }}>
-            <Typography variant='h3'>Telephone: </Typography>
-            <Link color={theme.palette.text.primary} variant='p' href='tel:+1234567890'>+1234567890</Link>
+            <Link color={theme.palette.text.primary} variant='p' href='mailto:contact@itiro-dmcc.ae'>contact@itiro-dmcc.ae</Link>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none', color: theme.palette.button.text }, flexDirection: 'column', rowGap: 2 }}>
-            <Button color='inherit' href='mailto:example@example.com'>Email<EmailIcon sx={{ ml: '10px' }} /></Button>
+            <Button color='inherit' href='mailto:contact@itiro-dmcc.ae'>Email<EmailIcon sx={{ ml: '10px' }} /></Button>
             <Button color='inherit' href='tel:+1234567890'>Telephone<CallIcon sx={{ ml: '10px' }} /></Button>
           </Box>
         </Box>
@@ -124,7 +142,7 @@ export default function ContactSection({ minHeight }) {
                       helperText={<Box component={'span'} style={{ height: '20px', overflow: 'hidden', display: 'inline-block' }}><Typography component={'span'} fontSize={'0.9rem'}>{touched.message && errors.message}</Typography></Box>}
                     />
                   </Grid>
-                  <Grid item xs={11}>
+                  <Grid item xs={11} sx={{ mb: 1}}>
                     <Button variant='contained' type='submit' disabled={!dirty || !isValid}>Submit</Button>
                   </Grid>
                 </Grid>

@@ -10,7 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import MobileDrawer from '../MobileDrawer/MobileDrawer';
 import MenuItem from '@mui/material/MenuItem';
-import logo from '../../images/logo.svg';
+import logoLight from '../../images/logo_light.svg';
+import logoDark from '../../images/logo_dark.svg';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 80,
@@ -95,7 +96,7 @@ function ResponsiveAppBar() {
           <MobileDrawer />
         </Box>
         <Box component='a' href='' sx={{  mx: { xs: 'auto', md: '0' }}}>
-          <img src={logo} alt='Logo' width={'100%'} />
+          <img src={theme.palette.mode === 'light' ? logoLight : logoDark} alt='Logo' width={'100%'} />
         </Box>
         <Box component='nav'
           sx={{
