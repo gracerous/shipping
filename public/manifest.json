@@ -3,11 +3,7 @@
   "name": "Itiro DMCC",
   "icons": [
     {
-<<<<<<< HEAD
       "src": "logo.ico",
-=======
-      "src": "дщпщ.ico",
->>>>>>> 34a8ed90b95e2e24813063be868a3db4adeb6042
       "sizes": "64x64",
       "type": "image/x-icon"
     }

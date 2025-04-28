@@ -20,11 +20,7 @@ export default function ContentCard({ cardImg, title, content }) {
         },
       },
       '@media (max-width: 1470px)': {
-<<<<<<< HEAD
         maxWidth: '300px',
-=======
-        maxWidth: '280px',
->>>>>>> 34a8ed90b95e2e24813063be868a3db4adeb6042
         minHeight: '400px',
       },
       '@media (max-width: 820px)': {
@@ -49,11 +45,7 @@ export default function ContentCard({ cardImg, title, content }) {
           },
         }}
       />
-<<<<<<< HEAD
       <CardContent sx={{ textAlign: 'center' }}>
-=======
-      <CardContent sx={{ textAlign: 'start' }}>
->>>>>>> 34a8ed90b95e2e24813063be868a3db4adeb6042
         <Typography className='cardHeader' gutterBottom variant='h5' component='div' color={theme.palette.card.text} sx={{
         }}>
           {title}
